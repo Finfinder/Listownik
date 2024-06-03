@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Listownik.Entities
 {
-    public class Kategorie
+    public class KategorieEntity
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
