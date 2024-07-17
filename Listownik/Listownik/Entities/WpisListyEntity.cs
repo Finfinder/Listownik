@@ -12,8 +12,11 @@ namespace Listownik.Entities
         public string? Opis { get; set; }
         public int Ilosc { get; set; }
         public byte[]? Ikona { get; set; }
-        public KategorieEntity Kategoria { get; set; } = default!;
-        public ListyEntity Lista { get; set; } = default!;
 
+        [ForeignKey("KategoriaId")]
+        public KategorieEntity? Kategoria { get; set; }
+
+        [ForeignKey("ListaId")]
+        public ListyEntity? Lista { get; set; }
     }
 }
