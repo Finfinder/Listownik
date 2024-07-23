@@ -7,7 +7,7 @@ namespace Listownik.Entities
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
-        public Guid Id { get; protected set; }
+        public Guid Id { get; set; }
         public string Nazwa { get; set; } = default!;
     }
 }
