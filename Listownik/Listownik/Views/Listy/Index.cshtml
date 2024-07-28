@@ -1,35 +1,31 @@
 ﻿@model IEnumerable<Listownik.Entities.ListyEntity>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Listy";
 }
 
-<h1>Index</h1>
+<h1>Listy</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nazwa)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nazwa)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+@foreach (var lista in Model)
+{
+    <div>
+        <h2>@lista.Nazwa
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#wpisy-@lista.Id" aria-expanded="false" aria-controls="wpisy-@lista.Id">
+            Pokaż/Ukryj Wpisy
+            </button>
+        </h2>
+        <div class="collapse" id="wpisy-@lista.Id">
+            <ul>
+                @foreach (var wpis in lista.Wpisy)
+                {
+                    <li>
+                        <strong>@wpis.Nazwa</strong> - @wpis.Opis (Ilość: @wpis.Ilosc)
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
 }
-    </tbody>
-</table>
+<p><h2>
+<a asp-action="Create">Nowa lista</a>
+</h2></p>

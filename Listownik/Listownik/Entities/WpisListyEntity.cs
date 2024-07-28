@@ -18,5 +18,6 @@ namespace Listownik.Entities
 
         [ForeignKey("ListaId")]
         public ListyEntity? Lista { get; set; }
+        public Guid ListaId { get; set; } // Dodano właściwość ListaId
     }
 }

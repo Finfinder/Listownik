@@ -9,5 +9,7 @@ namespace Listownik.Entities
         [Key]
         public Guid Id { get; set; }
         public string Nazwa { get; set; } = default!;
+
+        public ICollection<WpisListyEntity>? Wpisy { get; set; }
     }
 }

@@ -21,7 +21,10 @@ namespace Listownik.Controllers
         // GET: Listy
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Listy.ToListAsync());
+            var listy = await _context.Listy
+                .Include(l => l.Wpisy)
+                .ToListAsync();
+            return View(listy);
         }
 
         // GET: Listy/Details/5
