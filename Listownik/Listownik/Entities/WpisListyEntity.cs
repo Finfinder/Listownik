@@ -15,7 +15,12 @@ namespace Listownik.Entities
         public byte[]? Ikona { get; set; }
 
         [ForeignKey("ListaId")]
-        [Required(ErrorMessage = "Pole ListaId jest wymagane.")]
-        public Guid ListaId { get; set; } // Dodano właściwość ListaId
+        [Required(ErrorMessage = "Pole Lista jest wymagane.")]
+        public Guid ListaId { get; set; }
+
+        [ForeignKey("KategoriaId")]
+        [Required(ErrorMessage = "Pole Kategoria jest wymagane.")]
+        public Guid KategoriaId { get; set; }
+        public KategorieEntity Kategoria { get; set; } = default!;
     }
 }

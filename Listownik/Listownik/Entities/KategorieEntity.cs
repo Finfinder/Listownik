@@ -8,6 +8,8 @@ namespace Listownik.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public Guid Id { get; set; }
+
+        [Required(ErrorMessage = "Pole Nazwa jest wymagane.")]
         public string Nazwa { get; set; } = default!;
     }
 }

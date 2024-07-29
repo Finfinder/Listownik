@@ -45,6 +45,7 @@ namespace Listownik.Controllers
         // GET: WpisListy/Create
         public IActionResult Create()
         {
+            ViewData["KategoriaID"] = new SelectList(_context.Kategorie, "Id", "Nazwa");
             ViewData["ListaId"] = new SelectList(_context.Listy, "Id", "Nazwa");
             return View();
         }
@@ -54,7 +55,7 @@ namespace Listownik.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nazwa,Opis,Ilosc,Ikona,ListaID")] WpisListyEntity wpisListyEntity)
+        public async Task<IActionResult> Create([Bind("Id,Nazwa,Opis,Ilosc,Ikona,ListaID,KategoriaID")] WpisListyEntity wpisListyEntity)
         {
             if (ModelState.IsValid)
             {
@@ -63,6 +64,7 @@ namespace Listownik.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["KategoriaID"] = new SelectList(_context.Kategorie, "Id", "Nazwa", wpisListyEntity.KategoriaId);
             ViewData["ListaId"] = new SelectList(_context.Listy, "Id", "Nazwa", wpisListyEntity.ListaId);
             return View(wpisListyEntity);
         }
@@ -80,6 +82,7 @@ namespace Listownik.Controllers
             {
                 return NotFound();
             }
+            ViewData["KategoriaID"] = new SelectList(_context.Kategorie, "Id", "Nazwa", wpisListyEntity.KategoriaId);
             ViewData["ListaId"] = new SelectList(_context.Listy, "Id", "Nazwa", wpisListyEntity.ListaId);
             return View(wpisListyEntity);
         }
@@ -89,7 +92,7 @@ namespace Listownik.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Nazwa,Opis,Ilosc,Ikona,ListaID")] WpisListyEntity wpisListyEntity)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Nazwa,Opis,Ilosc,Ikona,ListaID,KategoriaID")] WpisListyEntity wpisListyEntity)
         {
             if (id != wpisListyEntity.Id)
             {
@@ -116,6 +119,7 @@ namespace Listownik.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["KategoriaID"] = new SelectList(_context.Kategorie, "Id", "Nazwa", wpisListyEntity.KategoriaId);
             ViewData["ListaId"] = new SelectList(_context.Listy, "Id", "Nazwa", wpisListyEntity.ListaId);
             return View(wpisListyEntity);
         }
