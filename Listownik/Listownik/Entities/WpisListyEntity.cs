@@ -21,6 +21,5 @@ namespace Listownik.Entities
         [ForeignKey("KategoriaId")]
         [Required(ErrorMessage = "Pole Kategoria jest wymagane.")]
         public Guid KategoriaId { get; set; }
-        public KategorieEntity Kategoria { get; set; } = default!;
     }
 }
