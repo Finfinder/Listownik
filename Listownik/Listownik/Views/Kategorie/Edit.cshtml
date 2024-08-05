@@ -1,12 +1,11 @@
 ﻿@model Listownik.Entities.KategorieEntity
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edycja kategorii";
 }
 
-<h1>Edit</h1>
+<h1>Edycja kategorii</h1>
 
-<h4>KategorieEntity</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -15,18 +14,18 @@
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <label asp-for="Nazwa" class="control-label"></label>
-                <input asp-for="Nazwa" class="form-control" />
+                <input asp-for="Nazwa" class="form-control mb-3" />
                 <span asp-validation-for="Nazwa" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Zapisz" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Powrót do listy</a>
 </div>
 
 @section Scripts {

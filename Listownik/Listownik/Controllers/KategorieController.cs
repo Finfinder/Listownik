@@ -24,24 +24,6 @@ namespace Listownik.Controllers
             return View(await _context.Kategorie.ToListAsync());
         }
 
-        // GET: Kategorie/Details/5
-        public async Task<IActionResult> Details(Guid? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var kategorieEntity = await _context.Kategorie
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (kategorieEntity == null)
-            {
-                return NotFound();
-            }
-
-            return View(kategorieEntity);
-        }
-
         // GET: Kategorie/Create
         public IActionResult Create()
         {
