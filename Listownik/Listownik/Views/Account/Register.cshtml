@@ -1,22 +1,22 @@
 ﻿@model Listownik.Models.RegisterViewModel
 
-<h2>Register</h2>
+<h2>Rejestracja</h2>
 
 <form asp-action="Register">
     <div class="form-group">
-        <label asp-for="Email"></label>
+        <label asp-for="Email">Adres e-mail</label>
         <input asp-for="Email" class="form-control" />
         <span asp-validation-for="Email" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="Password"></label>
+        <label asp-for="Password">Hasło</label>
         <input asp-for="Password" class="form-control" />
         <span asp-validation-for="Password" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="ConfirmPassword"></label>
+        <label asp-for="ConfirmPassword">Potwierdź hasło</label>
         <input asp-for="ConfirmPassword" class="form-control" />
         <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
     </div>
-    <button type="submit" class="btn btn-primary">Register</button>
+    <button type="submit" class="btn btn-primary">Zarejestruj</button>
 </form>

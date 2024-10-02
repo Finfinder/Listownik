@@ -15,14 +15,17 @@
             </button>
         </h2>
         <div class="collapse" id="wpisy-@lista.Id">
-            <ul>
-                @foreach (var wpis in lista.Wpisy)
-                {
-                    <li>
-                        <strong>@wpis.Nazwa</strong> - @wpis.Opis (Ilość: @wpis.Ilosc)
-                    </li>
-                }
-            </ul>
+            @if (lista.Wpisy != null)
+            {
+                <ul>
+                    @foreach (var wpis in lista.Wpisy)
+                    {
+                        <li>
+                            <strong>@wpis.Nazwa</strong> - @wpis.Opis (Ilość: @wpis.Ilosc)
+                        </li>
+                    }
+                </ul>
+            }
         </div>
     </div>
 }
